@@ -19,13 +19,15 @@ int main(int argc, char *argv[])
 
     for (int i = 0;i < data.length();i++)
     {
-        Worker* worker = new Worker(&a,&data, &sema, i);
+        //Worker* worker = new Worker(&a,&data, &sema, i); Causes an error in windows 10
+        Worker* worker = new Worker(nullptr,&data, &sema, i);
         worker->setAutoDelete(true);
         pool->start(worker);
     }
     for (int i = 0;i < data.length();i++)
     {
-        Worker* worker = new Worker(&a,&data, &sema, i);
+       //Worker* worker = new Worker(&a,&data, &sema, i); Causes an error in windows 10
+        Worker* worker = new Worker(nullptr,&data, &sema, i);
         worker->setAutoDelete(true);
         pool->start(worker);
     }
